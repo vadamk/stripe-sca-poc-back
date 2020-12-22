@@ -18,6 +18,14 @@ export const RecordSchema = new Schema(
       type: Number,
       required: [true, 'START_TIME_IS_BLANK'],
     },
+    location: {
+      type: String,
+      required: [true, 'LOCATION_IS_BLANK'],
+    },
+    dev: {
+      type: Boolean,
+      required: [true, 'DEV_IS_BLANK'],
+    },
   },
   {
     versionKey: false,

@@ -6,4 +6,6 @@ export interface Record extends Document {
   startTime: number;
   value: string;
   label: string;
+  location: string;
+  dev: boolean;
 }

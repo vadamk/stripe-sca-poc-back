@@ -3,4 +3,6 @@ export class PushRecordDto {
   startTime: number;
   value: string;
   label: string;
+  location: string;
+  dev: boolean;
 }

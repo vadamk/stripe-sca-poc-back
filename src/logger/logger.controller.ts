@@ -5,6 +5,8 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Param,
+  Query,
 } from '@nestjs/common';
 import { LoggerService } from './logger.service';
 import { PushRecordDto } from './dto/logger.dto';
@@ -20,7 +22,7 @@ export class LoggerController {
   }
 
   @Get()
-  async getAll() {
-    return this.loggerService.getAll();
+  async getAll(@Query() query) {
+    return this.loggerService.getAll(query);
   }
 }

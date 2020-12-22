@@ -17,7 +17,34 @@ export class LoggerService {
     return record;
   }
 
-  async getAll(): Promise<Record[]> {
-    return this.recordModel.find({});
+  async getAll({ from, to, name, dev }): Promise<Record[]> {
+    await this.recordModel.remove({
+      createdAt: { $lte: new Date('2020-12-18T11:42:54.498+00:00') },
+    });
+
+    if (!from && !to) {
+      return this.recordModel.find({});
+    }
+
+    if (!name) {
+      return this.recordModel.find({
+        createdAt: {
+          $gte: new Date(from),
+          $lt: new Date(to),
+        },
+      });
+    }
+
+    const boolDev =
+      typeof dev === 'string' ? (dev === 'true' ? true : false) : dev;
+
+    return this.recordModel.find({
+      name,
+      dev: { $in: boolDev ? [boolDev] : [false, null] },
+      createdAt: {
+        $gte: new Date(from),
+        $lt: new Date(to),
+      },
+    });
   }
 }
