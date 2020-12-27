@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 
 import { PaymentsModule } from './payments/payments.module';
 import { LoggerModule } from './logger/logger.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { LoggerModule } from './logger/logger.module';
     MongooseModule.forRoot(process.env.DB_URI, { useNewUrlParser: true }),
     PaymentsModule,
     LoggerModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

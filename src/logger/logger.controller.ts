@@ -5,7 +5,6 @@ import {
   Get,
   HttpCode,
   HttpStatus,
-  Param,
   Query,
 } from '@nestjs/common';
 import { LoggerService } from './logger.service';

@@ -18,10 +18,6 @@ export class LoggerService {
   }
 
   async getAll({ from, to, name, dev }): Promise<Record[]> {
-    await this.recordModel.remove({
-      createdAt: { $lte: new Date('2020-12-18T11:42:54.498+00:00') },
-    });
-
     if (!from && !to) {
       return this.recordModel.find({});
     }
