@@ -4,6 +4,7 @@ import {
   Delete,
   HttpCode,
   HttpStatus,
+  Param,
   Patch,
   Put,
 } from '@nestjs/common';
@@ -27,9 +28,9 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  @Delete('removeSession')
+  @Delete('removeSession/:email')
   @HttpCode(HttpStatus.OK)
-  async logout(@Body() logoutDto: LogoutDto) {
+  async logout(@Param() logoutDto: LogoutDto) {
     return this.authService.logout(logoutDto);
   }
 }
