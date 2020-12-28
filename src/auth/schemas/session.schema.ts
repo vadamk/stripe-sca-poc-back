@@ -10,6 +10,9 @@ export const SessionSchema = new Schema(
       type: String,
       required: [true, 'CODE_IS_BLANK'],
     },
+    pushToken: {
+      type: String,
+    },
     isActive: {
       type: Boolean,
     },

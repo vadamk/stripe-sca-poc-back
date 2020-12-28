@@ -15,19 +15,19 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Put()
+  @Put('getCode')
   @HttpCode(HttpStatus.OK)
   async getCode(@Body() getCodeDto: GetCodeDto) {
     return this.authService.getCode(getCodeDto);
   }
 
-  @Patch('/createSession')
+  @Patch('createSession')
   @HttpCode(HttpStatus.OK)
   async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }
 
-  @Delete('/removeSession')
+  @Delete('removeSession')
   @HttpCode(HttpStatus.OK)
   async logout(@Body() logoutDto: LogoutDto) {
     return this.authService.logout(logoutDto);

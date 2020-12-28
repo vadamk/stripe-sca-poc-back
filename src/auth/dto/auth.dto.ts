@@ -5,6 +5,7 @@ export class GetCodeDto {
 export class LoginDto {
   email: string;
   code: string;
+  pushToken?: string;
 }
 
 export class LogoutDto {
