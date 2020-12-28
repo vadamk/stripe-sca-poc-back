@@ -37,9 +37,9 @@ export class AuthService {
     };
   }
 
-  async login({ email, code }: LoginDto) {
+  async login({ email, code, token: pushToken }: LoginDto) {
     const result = await this.sessionModel.updateOne(
-      { email, code, isActive: false },
+      { email, code, pushToken, isActive: false },
       { isActive: true },
     );
 
